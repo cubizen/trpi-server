@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Package Explorer - {{ path }}</title>
+  <title>Package Explorer</title>
   <link rel="stylesheet" href="/tritium/static/css/style.css">
 </head>
 <body>
@@ -18,14 +18,25 @@
       <th>PackageName</th>
       <th>Author</th>
       <th>Version</th>
-      <th>UpdateTime</th>
+      <th>UpdateDate</th>
     </tr>
+    {% for data in package_list %}
     <tr>
-      <td>Test Package</td>
-      <td>Hateful_Carre1</td>
-      <td>0.9.1</td>
-      <td>2018-2-1 19:38:22</td>
+      <td>
+        <a href="/download?id={{ data['id'] }}" target="_blank">{{ data["name"] }}</a>
+      </td>
+      <td>
+        {{ data["author"] }}
+      </td>
+      <td>
+        {{ data["version"] }}
+      </td>
+      <td>
+        {{ data["updatadate"] }}
+      </td>
     </tr>
+    {% endfor %}
+
   </table>
 </div>
 </body>
