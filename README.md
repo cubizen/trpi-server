@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# TrPI
 
-The tritium project is in developing
-=======
-# trpi-server
+# TrPI
 Tritium Package Index server.
->>>>>>> origin/master
+
