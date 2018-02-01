@@ -1,3 +1,8 @@
+from configs import setting
+
+from modules.http_server import http_server
+
+
 class CommandWork:
     def __init__(self, argv):
         self.argv = argv
@@ -12,13 +17,7 @@ class CommandWork:
         pass
 
     def start(self):
-        pass
-
-    def stop(self):
-        pass
-
-    def restart(self):
-        pass
+        http_server.run_server(server_address=(setting.LISTEN_IP, setting.LISTEN_PORT))
 
     def config(self):
         pass

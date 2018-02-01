@@ -4,7 +4,7 @@
 #
 # ========================================================================
 
-from configs import conf
+from configs import setting
 from modules.http_server.view import PackagesExplorer
 
 ALLOWED_URL = {
@@ -12,4 +12,4 @@ ALLOWED_URL = {
 
 }
 
-ALLOWED_URL = {"/" + conf.ROOT_URL + t: ALLOWED_URL[t] for t in ALLOWED_URL}
+ALLOWED_URL = {"/" + setting.ROOT_URL + t: ALLOWED_URL[t] for t in ALLOWED_URL}

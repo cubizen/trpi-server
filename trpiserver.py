@@ -9,8 +9,6 @@ def main(argv):
         "help",
         "update",
         "start",
-        "stop",
-        "restart",
         "config",
     ]
 

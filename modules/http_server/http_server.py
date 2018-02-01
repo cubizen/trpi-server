@@ -3,7 +3,7 @@ import jinja2
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
-from configs import conf
+from configs import setting
 from configs import url
 
 
@@ -29,8 +29,8 @@ class CharsProcessing:
                 listpath.remove(text)
 
         # Delete root path
-        if listpath[0] == conf.ROOT_URL:
-            listpath.remove(conf.ROOT_URL)
+        if listpath[0] == setting.ROOT_URL:
+            listpath.remove(setting.ROOT_URL)
 
         return listpath
 
@@ -39,10 +39,10 @@ class CharsProcessing:
         # Get extension name
         extension_name = re.findall("\.([^.]*)$", filename)[0]
 
-        if extension_name in conf.CONTENT_TYPES:
-            content_type = conf.CONTENT_TYPES[extension_name]
+        if extension_name in setting.CONTENT_TYPES:
+            content_type = setting.CONTENT_TYPES[extension_name]
         else:
-            content_type = conf.CONTENT_TYPES["_default"]
+            content_type = setting.CONTENT_TYPES["_default"]
 
         return content_type
 
@@ -51,7 +51,6 @@ class HTTPServerRequest(BaseHTTPRequestHandler):
     # GET
     def do_GET(self):
         list_path = CharsProcessing(self.path).strpath2listpath()
-        print(list_path)
 
         if self.path in url.ALLOWED_URL:
             content = url.ALLOWED_URL[self.path]()
@@ -62,9 +61,10 @@ class HTTPServerRequest(BaseHTTPRequestHandler):
             return
 
         # Return the static files request
-        if list_path[0] == conf.ROOT_URL + "/static":
+        if list_path[0] == "static":
             try:
                 file_path = "./" + '/'.join(list_path)
+
                 f = open(file_path, "rb")
                 message = f.read()
                 f.close()
@@ -83,17 +83,12 @@ class HTTPServerRequest(BaseHTTPRequestHandler):
                 f.close()
                 return
 
-        if list_path[0] == "favicon.ico":
-            self.send_response(404)
-            return
-        return
-
 
 def run_server(server_address):
     httpd = HTTPServer(server_address, HTTPServerRequest)
-    print('running server http://%s:%d' % server_address)
+    print('Running TrIP server in http://%s:%d' % server_address)
     httpd.serve_forever()
 
 
 if __name__ == '__main__':
-    run_server(server_address=('127.0.0.1', 8081))
+    run_server(server_address=('127.0.0.1', 8082))
