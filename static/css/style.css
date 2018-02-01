@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #dfffc7;
+    height: 100px;
+}
+
+.header img {
+    vertical-align: middle;
+}
+
+.header h1 {
+    line-height: 50px;
+}
+
+.explorer {
+    margin: 30px 20px;
+}
+
+.explorer table{
+    width: 50%;
+    text-align: left;
+}
