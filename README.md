@@ -4,7 +4,7 @@ Tritium Package Index server.
 ## How to running it?
 > Here is an example of Ubunut 16.04.
 
-> Supported Python3. 
+> Supported Python3, Temporarily **Not Supported Python2**.
 
 ### Setp 1
 Install pip3 and jinja2:
