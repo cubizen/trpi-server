@@ -1,6 +1,6 @@
 from configs import setting
 
-from modules.http_server import http_server
+from modules import http_view
 
 
 class CommandWork:
@@ -17,7 +17,7 @@ class CommandWork:
         pass
 
     def start(self):
-        http_server.run_server(server_address=(setting.LISTEN_IP, setting.LISTEN_PORT))
+        http_view.run()
 
     def config(self):
         pass

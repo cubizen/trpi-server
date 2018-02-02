@@ -33,12 +33,16 @@ class CharsProcessing:
 
     @staticmethod
     def get_url_args(text):
-        args = re.findall("\?(.*)$", text)[0]
+        try:
+            args = re.findall("\?(.*)$", text)[0]
 
-        # Regular expressions are too hard to use, LOL
-        str_json = '{"%s"}' % args.replace('=', '":"').replace('&', '","')
+            # Regular expressions are too hard to use, LOL
+            str_json = '{"%s"}' % args.replace('=', '":"').replace('&', '","')
 
-        args_list = json.loads(str_json)
+            args_list = json.loads(str_json)
+        except:
+            args_list = {}
+
         return args_list
 
     @staticmethod
@@ -84,9 +88,14 @@ class HTTPServerRequest(BaseHTTPRequestHandler):
             path = CharsProcessing.remove_url_args(self.path)
             content = url.ALLOWED_URL[path](self)
             self.send_response(200)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', CharsProcessing.get_content_type(list_path[-1]))
             self.end_headers()
-            self.wfile.write(content.encode("utf-8"))
+
+            try:
+                self.wfile.write(content.encode("utf-8"))
+            except AttributeError:
+                self.wfile.write(content)
+
             return
 
         # Return the static files request
@@ -120,4 +129,4 @@ def run_server(server_address):
 
 
 if __name__ == '__main__':
-    CharsProcessing.get_url_args("http://0.0.0.0/a?a=1&b=2&c=3")
+    run_server(("localhost", 8080))

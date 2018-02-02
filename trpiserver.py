@@ -21,7 +21,7 @@ def main(argv):
         exit(0)
 
     if cmd in cmd_list:
-        eval("wk(argv)." + argv[0])()
+        eval("wk." + argv[0])()
         exit(0)
     else:
         wk.help()
