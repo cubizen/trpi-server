@@ -6,7 +6,7 @@ body {
 }
 
 a {
-    color: #4c83dc;
+    color: #4fa1ff;
     text-decoration: none;
 }
 
@@ -33,9 +33,9 @@ table {
 
 .header img {
     vertical-align: middle;
-    padding: 0 5px;
+    /*padding: 0 5px;*/
     background-color: #ffffff;
-    box-shadow: 0 0 15px #b6b6b6;
+    box-shadow: 0 0 10px #b6b6b6;
 }
 
 .header h1 {

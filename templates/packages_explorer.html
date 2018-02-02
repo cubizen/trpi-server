@@ -24,13 +24,13 @@
       {% for data in package_list %}
       <tr>
         <td>
-          <a href="/tritium/download?id={{ data['id'] }}" target="_blank">{{ data["name"] }}</a>
+          <a href="/tritium/{{ data['name'] }}" target="_blank">{{ data["name"] }}</a>
         </td>
         <td>
           {{ data["author"] }}
         </td>
         <td>
-          {{ data["version"] }}
+          {{ data["latest"] }}
         </td>
         <td>
           {{ data["updatadate"] }}

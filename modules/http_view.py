@@ -1,9 +1,9 @@
 import jinja2
 
+from configs import setting
 from modules import bottle
 from modules.bottle import route, static_file
-
-from configs import setting
+from modules.package_manager import PackageManager
 
 R = setting.ROOT_URL
 
@@ -32,13 +32,16 @@ def run():
 
 @route(R)
 def packages_explorer():
-    package_list = [  # test data
-        {"name": "Test1", "id": "1", "author": "Hateful_Carre1", "version": "0.8.4", "updatadate": "2018-02-01"},
-        {"name": "Test2", "id": "2", "author": "Hateful_Carre1", "version": "0.1.9", "updatadate": "2018-01-30"},
-        {"name": "Test3", "id": "3", "author": "Jerry", "version": "1.0.9", "updatadate": "2018-01-14"},
-    ]
+
     return TemplatesRender.r("packages_explorer.html",
-                             package_list=package_list,
+                             package_list=PackageManager.get_list(),
+                             )
+
+
+@route(R+"/<package>")
+def package_info(package):
+    return TemplatesRender.r("packages_explorer.html",
+                             package_list=[],
                              )
 
 
