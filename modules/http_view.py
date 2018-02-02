@@ -37,21 +37,18 @@ def packages_explorer():
                              )
 
 
-@route(R + "/<package>")
-def package_info(package):
+@route(R + "/<package_license>")
+def package_info(package_license):
     return TemplatesRender.r("packages_information.html",
-                             versions=[
-                                 {"version": "0.0.1", "md5": "cIKxVaSCtoGwSIQhMXSYiaLWmGoH", "updatadate": "2018-1-1"}
-                             ],
-                             package_info={
-                                 "name": "",
-                                 "author": "",
-                                 "type": "",
-                                 "application": "",
-                                 "license": "",
-                                 "readme": "",
-                             },
+                             versions=PackageManager(package_license).get_versions(),
+                             package_license=package_license,
+                             readme="README"
                              )
+
+
+@route(R + "/download/<license>/<package_md5>")
+def package_info(package, package_md5):
+    return
 
 
 @route(R + '/static/:path#.+#')

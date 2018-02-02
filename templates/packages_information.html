@@ -19,24 +19,24 @@
     </p>
     <ul>
       <li>
-        Package Name: {{ package_info["name"] }}
+        Package Name: {{ versions[0]["name"] }}
       </li>
       <li>
-        Author: {{ package_info["author"] }}
+        Author: {{ versions[0]["author"] }}
       </li>
       <li>
-        Type: {{ package_info["type"] }}
+        Type: {{ versions[0]["type"] }}
       </li>
       <li>
-        Application: {{ package_info["application"] }}
+        Application: {{ versions[0]["application"] }}
       </li>
       <li>
-        License: {{ package_info["license"] }}
+        License: <code>{{ package_license }}</code>
       </li>
     </ul>
   </div>
   <div class="markdown">
-    {{ package_info["readme"] }}
+    {{ readme }}
   </div>
   <div class="explorer">
     <h4>All Release</h4>
@@ -44,7 +44,7 @@
       <tr>
         <th>Version</th>
         <th>PackageMD5</th>
-        <th>UpdateDate</th>
+        <th>CreateDate</th>
         <th>Size</th>
         <th> </th>
       </tr>
@@ -57,10 +57,10 @@
           {{ data["md5"] }}
         </td>
         <td>
-          {{ data["updatadate"] }}
+          {{ data["createtime"] }}
         </td>
         <td>
-          - B
+          {{ data["packagesize"] }} B
         </td>
         <td>
           <a href="download/{{ data['md5'] }}" target="_blank">Download</a>

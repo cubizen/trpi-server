@@ -15,6 +15,16 @@ table {
     text-align: left;
 }
 
+code {
+    font-family: sans-serif;
+    font-size: 5px;
+    color: #00a900;
+    background-color: #f2f2f2;
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    padding: 2px;
+}
+
 .content {
     margin: 15px;
 
@@ -60,6 +70,11 @@ table {
     background: #fafafa;
 }
 
-.package-info{
-padding: 30px;
+.package-info {
+    padding: 30px;
 }
+
+.markdown {
+    padding: 30px;
+}
+
