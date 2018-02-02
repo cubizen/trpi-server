@@ -6,38 +6,40 @@
   <link rel="stylesheet" href="/tritium/static/css/style.css">
 </head>
 <body>
-<div class="header">
-  <h1>
-    <img src="/tritium/static/img/logo.png" height="100">
-    Package Explorer
-  </h1>
-</div>
-<div class="explorer">
-  <table>
-    <tr>
-      <th>PackageName</th>
-      <th>Author</th>
-      <th>Version</th>
-      <th>UpdateDate</th>
-    </tr>
-    {% for data in package_list %}
-    <tr>
-      <td>
-        <a href="/download?id={{ data['id'] }}" target="_blank">{{ data["name"] }}</a>
-      </td>
-      <td>
-        {{ data["author"] }}
-      </td>
-      <td>
-        {{ data["version"] }}
-      </td>
-      <td>
-        {{ data["updatadate"] }}
-      </td>
-    </tr>
-    {% endfor %}
+<div class="content">
+  <div class="header">
+    <h1>
+      <img src="/tritium/static/img/logo.png" height="100">
+      Package Explorer
+    </h1>
+  </div>
+  <div class="explorer">
+    <table>
+      <tr>
+        <th>PackageName</th>
+        <th>Author</th>
+        <th>Version</th>
+        <th>UpdateDate</th>
+      </tr>
+      {% for data in package_list %}
+      <tr>
+        <td>
+          <a href="/tritium/download?id={{ data['id'] }}" target="_blank">{{ data["name"] }}</a>
+        </td>
+        <td>
+          {{ data["author"] }}
+        </td>
+        <td>
+          {{ data["version"] }}
+        </td>
+        <td>
+          {{ data["updatadate"] }}
+        </td>
+      </tr>
+      {% endfor %}
 
-  </table>
+    </table>
+  </div>
 </div>
 </body>
 </html>
