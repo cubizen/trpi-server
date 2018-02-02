@@ -32,16 +32,25 @@ def run():
 
 @route(R)
 def packages_explorer():
-
     return TemplatesRender.r("packages_explorer.html",
                              package_list=PackageManager.get_list(),
                              )
 
 
-@route(R+"/<package>")
+@route(R + "/<package>")
 def package_info(package):
-    return TemplatesRender.r("packages_explorer.html",
-                             package_list=[],
+    return TemplatesRender.r("packages_information.html",
+                             versions=[
+                                 {"version": "0.0.1", "md5": "cIKxVaSCtoGwSIQhMXSYiaLWmGoH", "updatadate": "2018-1-1"}
+                             ],
+                             package_info={
+                                 "name": "",
+                                 "author": "",
+                                 "type": "",
+                                 "application": "",
+                                 "license": "",
+                                 "readme": "",
+                             },
                              )
 
 

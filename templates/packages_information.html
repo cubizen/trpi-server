@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Package Explorer</title>
+  <link rel="stylesheet" href="/tritium/static/css/style.css">
+</head>
+<body>
+<div class="content">
+  <div class="header">
+    <h1>
+      <img src="/tritium/static/img/logo.png" height="100">
+      Package Explorer
+    </h1>
+  </div>
+  <div class="package-info">
+    <p>
+      <a href="/tritium">&#60; Back to root</a>
+    </p>
+    <ul>
+      <li>
+        Package Name: {{ package_info["name"] }}
+      </li>
+      <li>
+        Author: {{ package_info["author"] }}
+      </li>
+      <li>
+        Type: {{ package_info["type"] }}
+      </li>
+      <li>
+        Application: {{ package_info["application"] }}
+      </li>
+      <li>
+        License: {{ package_info["license"] }}
+      </li>
+    </ul>
+  </div>
+  <div class="markdown">
+    {{ package_info["readme"] }}
+  </div>
+  <div class="explorer">
+    <h4>All Release</h4>
+    <table>
+      <tr>
+        <th>Version</th>
+        <th>PackageMD5</th>
+        <th>UpdateDate</th>
+        <th>Size</th>
+        <th> </th>
+      </tr>
+      {% for data in versions %}
+      <tr>
+        <td>
+          {{ data["version"] }}
+        </td>
+        <td>
+          {{ data["md5"] }}
+        </td>
+        <td>
+          {{ data["updatadate"] }}
+        </td>
+        <td>
+          - B
+        </td>
+        <td>
+          <a href="download/{{ data['md5'] }}" target="_blank">Download</a>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </div>
+</div>
+</body>
+</html>

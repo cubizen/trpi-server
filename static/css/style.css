@@ -28,14 +28,14 @@ table {
     height: 100px;
 
     background-color: #bdbdbd;
-    box-shadow: 0 0 5px #b6b6b6;
+    box-shadow: 0 0 5px #929292;
 }
 
 .header img {
     vertical-align: middle;
     /*padding: 0 5px;*/
     background-color: #ffffff;
-    box-shadow: 0 0 10px #b6b6b6;
+    box-shadow: 0 0 10px #929292;
 }
 
 .header h1 {
@@ -58,4 +58,8 @@ table {
 
 .explorer tr:nth-of-type(even) {
     background: #fafafa;
+}
+
+.package-info{
+padding: 30px;
 }
