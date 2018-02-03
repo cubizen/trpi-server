@@ -1,6 +1,9 @@
 # TrPI
 Tritium Package Index server.
 
+[![GitHub issues](https://img.shields.io/github/issues/cubizen/trpi-server.svg?style=for-the-badge)](https://github.com/cubizen/trpi-server/issues)
+[![GitHub license](https://img.shields.io/github/license/cubizen/trpi-server.svg?style=for-the-badge)](https://github.com/cubizen/trpi-server/blob/master/LICENSE)
+
 ## How to running it?
 > Supported Python3, Temporarily **Not Supported Python2**.
 
