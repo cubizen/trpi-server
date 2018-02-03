@@ -25,12 +25,17 @@ code {
     padding: 2px;
 }
 
-.content {
+
+.container {
     margin: 15px;
 
     background-color: #ffffff;
     border: 1px solid #dcdcdc;
     border-radius: 5px;
+}
+
+.content {
+    padding: 20px 30px;
 }
 
 .header {
@@ -70,11 +75,24 @@ code {
     background: #fafafa;
 }
 
-.package-info {
-    padding: 30px;
+.big-download-button {
+    height: 65px;
+    width: 185px;
+    float: right;
+
+    background-color: #00a900;
+    border: 3px solid #009100;
+    border-radius: 5px;
 }
 
-.markdown {
-    padding: 30px;
+.big-download-button h3 {
+    color: #ffffff;
+    line-height: 0;
+}
+
+.big-download-button p {
+    color: #fffa00;
+    font-size: 3px;
+    line-height: 0;
 }
 
