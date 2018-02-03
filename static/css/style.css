@@ -56,6 +56,9 @@ code {
 .header h1 {
     line-height: 50px;
     color: white;
+    width: calc(100% - 210px);
+    display: inline-block;
+    margin: 0;
 }
 
 .explorer {
@@ -96,3 +99,12 @@ code {
     line-height: 0;
 }
 
+#searchBar {
+    width: 200px;
+    display: inline-block;
+    border: none;
+    height: 30px;
+    background: #f3f3f3;
+    border-radius: 4px;
+    padding: 1px;
+}
