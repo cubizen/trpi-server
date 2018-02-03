@@ -1,5 +1,3 @@
-from configs import setting
-
 from modules import http_view
 
 
