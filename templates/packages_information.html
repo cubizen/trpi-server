@@ -6,17 +6,27 @@
   <link rel="stylesheet" href="/tritium/static/css/style.css">
 </head>
 <body>
-<div class="content">
+<div class="container">
+  <!--header-->
   <div class="header">
     <h1>
-      <img src="/tritium/static/img/logo.png" height="100">
+      <img src="/tritium/static/img/logo_nav.png" height="100">
       Package Explorer
     </h1>
   </div>
-  <div class="package-info">
+  <div class="content">
     <p>
       <a href="/tritium">&#60; Back to root</a>
     </p>
+    <!--Big download button-->
+    <div class="big-download-button" align="center">
+      <a href="download/{{ versions[0]['md5'] }}" target="_blank">
+        <h3>Download</h3>
+        <p>{{ versions[0]["name"] }}.tri ({{ versions[0]["packagesize"] }})</p>
+        <p>{{ versions[0]["version"] }}</p>
+      </a>
+    </div>
+    <!--info-->
     <ul>
       <li>
         Package Name: {{ versions[0]["name"] }}
@@ -35,9 +45,6 @@
       </li>
     </ul>
   </div>
-  <div class="markdown">
-    {{ readme }}
-  </div>
   <div class="explorer">
     <h4>All Release</h4>
     <table>
@@ -46,7 +53,7 @@
         <th>PackageMD5</th>
         <th>CreateDate</th>
         <th>Size</th>
-        <th> </th>
+        <th></th>
       </tr>
       {% for data in versions %}
       <tr>
@@ -60,7 +67,7 @@
           {{ data["createtime"] }}
         </td>
         <td>
-          {{ data["packagesize"] }} B
+          {{ data["packagesize"] }}
         </td>
         <td>
           <a href="download/{{ data['md5'] }}" target="_blank">Download</a>
