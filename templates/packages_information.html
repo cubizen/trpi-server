@@ -20,9 +20,10 @@
     </p>
     <!--Big download button-->
     <div class="big-download-button" align="center">
-      <a href="download/{{ versions[0]['md5'] }}" target="_blank">
+      <!--/tritium/download/package/{{ package_license }}/{{ versions[0]['md5'] }}-->
+      <a href="/tritium/get/package//{{ package_license }}/{{ versions[0]['md5'] }}/{{ versions[0]['name'] }}.zip" target="_blank">
         <h3>Download</h3>
-        <p>{{ versions[0]["name"] }}.tri ({{ versions[0]["packagesize"] }})</p>
+        <p>{{ versions[0]["name"] }}.zip ({{ versions[0]["packagesize"] }})</p>
         <p>{{ versions[0]["version"] }}</p>
       </a>
     </div>
@@ -70,7 +71,7 @@
           {{ data["packagesize"] }}
         </td>
         <td>
-          <a href="download/{{ data['md5'] }}" target="_blank">Download</a>
+          <a href="/tritium/get/package//{{ package_license }}/{{ data['md5'] }}/{{ data['name'] }}.zip" target="_blank">Download</a>
         </td>
       </tr>
       {% endfor %}

@@ -46,9 +46,10 @@ def package_info(package_license):
                              )
 
 
-@route(R + "/download/<license>/<package_md5>")
-def package_info(package, package_md5):
-    return
+@route(R + "/get/package/:path#.+#")
+def package_download(path):
+
+    return static_file(path, root="./packages_save")
 
 
 @route(R + '/static/:path#.+#')

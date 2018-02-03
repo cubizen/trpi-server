@@ -4,7 +4,7 @@ ALLOWED_HOSTNAME = ['*']
 DEBUG = True
 
 LISTEN_IP = "127.0.0.1"
-LISTEN_PORT = 8081
+LISTEN_PORT = 8083
 
 # The banned commands
 BANNED_COMMANDS = ['']
