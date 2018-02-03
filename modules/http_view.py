@@ -2,7 +2,7 @@ import jinja2
 
 from configs import setting
 from modules import bottle
-from modules.bottle import route, static_file
+from modules.bottle import route, static_file, request
 from modules.package_manager import PackageManager
 
 R = setting.ROOT_URL
@@ -48,10 +48,18 @@ def package_info(package_license):
 
 @route(R + "/get/package/:path#.+#")
 def package_download(path):
-
     return static_file(path, root="./packages_save")
 
 
 @route(R + '/static/:path#.+#')
 def static(path):
     return static_file(path, root='./static')
+
+
+""" APIs """
+
+
+@route(R + '/api/search', method="POST")
+def api_search():
+    keyword = request.forms.get('keyword')
+    return str(PackageManager.search_package(keyword))

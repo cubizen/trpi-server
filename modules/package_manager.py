@@ -1,6 +1,4 @@
 import base64
-import collections
-import operator
 import os
 
 import time
@@ -13,6 +11,7 @@ except ImportError:
 PACKAGES_SAVE_PATH = "./packages_save/"
 
 
+# noinspection PyTypeChecker
 class PackageManager:
     def __init__(self, licenses=None, name=None, md5=None):
         self.name = name
@@ -54,16 +53,12 @@ class PackageManager:
 
             # sort new > old
             try:
-                # print(version_index)
-                # print(versions[-1][0])
+
                 if create_time < version_index[-1][0]:
-                    # print("s " + str(create_time))
                     version_index.append((create_time, file))
                 else:
-                    # print("b " + str(create_time))
                     version_index.insert(-1, (create_time, file, "b"))
             except IndexError:
-                # print("n " + str(create_time))
                 version_index.append((create_time, file))
 
         # insert version info
@@ -97,6 +92,18 @@ class PackageManager:
 
         return package_list
 
+    @staticmethod
+    def search_package(keyword):
+        package_list = PackageManager.get_list()
 
-if __name__ == '__main__':
-    PackageManager("VGVzdFBhY2thZ2U6SGF0ZWZ1bF9DYXJyZTE6QXpBT3dOeE5CdG11").get_versions()
+        search_result = []
+        for package in package_list:
+            print(package)
+            lower_name = package['name'].lower()
+            print(keyword)
+            lower_keyword = keyword.lower()
+
+            if lower_keyword in lower_name:
+                search_result.append(package)
+
+        return search_result

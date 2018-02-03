@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/trpi.iml" filepath="$PROJECT_DIR$/.idea/trpi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/trpi-server.iml" filepath="$PROJECT_DIR$/.idea/trpi-server.iml" />
     </modules>
   </component>
 </project>
