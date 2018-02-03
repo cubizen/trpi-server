@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Package Explorer</title>
+  <link rel="stylesheet" href="/tritium/static/css/style.css">
+</head>
+<body>
+<div class="container">
+  <!--header-->
+  <div class="header">
+    <h1>
+      <img src="/tritium/static/img/logo_nav.png" height="100">
+      Package Explorer
+    </h1>
+  </div>
+  <div class="content">
+    <p>
+      <a href="/tritium">&#60; Back to root</a>
+    </p>
+    <!--Big download button-->
+    <div class="big-download-button" align="center">
+      <!--/tritium/download/package/{{ package_license }}/{{ versions[0]['md5'] }}-->
+      <a href="/tritium/get/package//{{ package_license }}/{{ versions[0]['md5'] }}/{{ versions[0]['name'] }}.zip" target="_blank">
+        <h3>Download</h3>
+        <p>{{ versions[0]["name"] }}.zip ({{ versions[0]["packagesize"] }})</p>
+        <p>{{ versions[0]["version"] }}</p>
+      </a>
+    </div>
+    <!--info-->
+    <ul>
+      <li>
+        Package Name: {{ versions[0]["name"] }}
+      </li>
+      <li>
+        Author: {{ versions[0]["author"] }}
+      </li>
+      <li>
+        Type: {{ versions[0]["type"] }}
+      </li>
+      <li>
+        Application: {{ versions[0]["application"] }}
+      </li>
+      <li>
+        License: <code>{{ package_license }}</code>
+      </li>
+    </ul>
+  </div>
+  <div class="explorer">
+    <h4>All Release</h4>
+    <table>
+      <tr>
+        <th>Version</th>
+        <th>PackageMD5</th>
+        <th>CreateDate</th>
+        <th>Size</th>
+        <th></th>
+      </tr>
+      {% for data in versions %}
+      <tr>
+        <td>
+          {{ data["version"] }}
+        </td>
+        <td>
+          {{ data["md5"] }}
+        </td>
+        <td>
+          {{ data["createtime"] }}
+        </td>
+        <td>
+          {{ data["packagesize"] }}
+        </td>
+        <td>
+          <a href="/tritium/get/package//{{ package_license }}/{{ data['md5'] }}/{{ data['name'] }}.zip" target="_blank">Download</a>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </table>
+  </div>
+</div>
+</body>
+</html>
