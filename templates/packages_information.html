@@ -18,10 +18,11 @@
     <p>
       <a href="/tritium">&#60; Back to root</a>
     </p>
+    {% if versions %}
     <!--Big download button-->
     <div class="big-download-button" align="center">
-      <!--/tritium/download/package/{{ package_license }}/{{ versions[0]['md5'] }}-->
-      <a href="/tritium/get/package//{{ package_license }}/{{ versions[0]['md5'] }}/{{ versions[0]['name'] }}.zip" target="_blank">
+      <a href="/tritium/get/package/{{ package_license }}/{{ versions[0]['md5'] }}/{{ versions[0]['name'] }}.zip"
+         target="_blank">
         <h3>Download</h3>
         <p>{{ versions[0]["name"] }}.zip ({{ versions[0]["packagesize"] }})</p>
         <p>{{ versions[0]["version"] }}</p>
@@ -45,8 +46,12 @@
         License: <code>{{ package_license }}</code>
       </li>
     </ul>
+    {% else %}
+    <h1>Package Error: None versions</h1>
+    {% endif %}
   </div>
   <div class="explorer">
+    <!--Versions list-->
     <h4>All Release</h4>
     <table>
       <tr>
@@ -56,6 +61,7 @@
         <th>Size</th>
         <th></th>
       </tr>
+      {% if versions %}
       {% for data in versions %}
       <tr>
         <td>
@@ -71,11 +77,17 @@
           {{ data["packagesize"] }}
         </td>
         <td>
-          <a href="/tritium/get/package//{{ package_license }}/{{ data['md5'] }}/{{ data['name'] }}.zip" target="_blank">Download</a>
+          <a href="/tritium/get/package/{{ package_license }}/{{ data['md5'] }}/{{ data['name'] }}.zip" target="_blank">Download</a>
         </td>
       </tr>
       {% endfor %}
-
+      {% else %}
+      <tr>
+        <td>
+          Package Error
+        </td>
+      </tr>
+      {% endif %}
     </table>
   </div>
 </div>

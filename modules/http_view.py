@@ -39,6 +39,7 @@ def packages_explorer():
 
 @route(R + "/<package_license>")
 def package_info(package_license):
+    versions = PackageManager(package_license).get_versions()
     return TemplatesRender.r("packages_information.html",
                              versions=PackageManager(package_license).get_versions(),
                              package_license=package_license,
