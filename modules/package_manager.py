@@ -88,7 +88,7 @@ class PackageManager:
             readme = f.read()
             f.close()
             return readme
-        except:
+        except FileNotFoundError:
             return "No README"
 
     @staticmethod
