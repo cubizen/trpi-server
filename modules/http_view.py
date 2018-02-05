@@ -47,11 +47,6 @@ def package_info(package_license):
                              )
 
 
-@route(R + "/get/package/:path#.+#")
-def package_download(path):
-    return static_file(path, root="./packages_save")
-
-
 @route(R + '/static/:path#.+#')
 def static(path):
     return static_file(path, root='./static')
@@ -60,7 +55,39 @@ def static(path):
 """ APIs """
 
 
+# Open packages library
+@route(R + "/get/package/:path#.+#")
+def package_download(path):
+    return static_file(path, root="./packages_save")
+
+
+# Search Package API
 @route(R + '/api/search', method="POST")
 def api_search():
     keyword = request.forms.get('keyword')
     return str(PackageManager.search_package(keyword))
+
+
+# Get Package Info API
+@route(R + '/api/package/info', method="POST")
+def api_package_info():
+    licenses = request.forms.get('license')
+    md5 = request.forms.get('md5')
+    flag = PackageManager(licenses=licenses, md5=md5).get_package_info()
+    return str(flag)
+
+
+# Get Versions
+@route(R + '/api/package/versions', method="POST")
+def api_package_versions():
+    licenses = request.forms.get('license')
+    flag = PackageManager(licenses=licenses).get_versions()
+    return str(flag)
+
+
+# Get License by package name
+@route(R + '/api/package/get-license', method="POST")
+def api_package_versions():
+    name = request.forms.get('name')
+    flag = PackageManager(name=name).get_license()
+    return str(flag)

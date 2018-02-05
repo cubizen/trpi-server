@@ -70,6 +70,24 @@ class PackageManager:
         print(versions)
         return versions
 
+    # Get package license
+    def get_license(self):
+        package_list = PackageManager.get_list()
+
+        for package in package_list:
+            if package["name"] == self.name:
+                return package["license"]
+            else:
+                return None
+
+    def get_readme(self):
+        readme_path = "./packages_save/%s/%s/README.md" % (self.license, self.md5)
+        print(readme_path)
+        f = open(readme_path, "r")
+        readme = f.read()
+        f.close()
+        return readme
+
     @staticmethod
     def get_list():
         # Get package library list
@@ -97,13 +115,18 @@ class PackageManager:
         package_list = PackageManager.get_list()
 
         search_result = []
-        for package in package_list:
-            print(package)
-            lower_name = package['name'].lower()
-            print(keyword)
+        for i in range(len(package_list)):
+            lower_name = package_list[i]['name'].lower()
             lower_keyword = keyword.lower()
 
             if lower_keyword in lower_name:
-                search_result.append(package)
+                # add readme data
+
+                md5s = "PwHLHfHuuFyTiiaOVpwYdtOzKabz"
+                pm = PackageManager(licenses=package_list[i]['license'], md5=md5s)
+                readme = pm.get_readme()
+                package_list[i]["readme"] = base64.b64encode(readme.encode("utf-8")).decode("utf-8")
+
+                search_result.append(package_list[i])
 
         return search_result
