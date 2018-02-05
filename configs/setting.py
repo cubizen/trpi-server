@@ -10,7 +10,7 @@ ALLOWED_HOSTNAME = ['*']
 DEBUG = True
 
 LISTEN_IP = "localhost"
-LISTEN_PORT = 8081
+LISTEN_PORT = 8082
 
 # The banned commands
 BANNED_COMMANDS = ['']

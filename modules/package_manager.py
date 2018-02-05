@@ -83,10 +83,13 @@ class PackageManager:
     def get_readme(self):
         readme_path = "./packages_save/%s/%s/README.md" % (self.license, self.md5)
         print(readme_path)
-        f = open(readme_path, "r")
-        readme = f.read()
-        f.close()
-        return readme
+        try:
+            f = open(readme_path, "r")
+            readme = f.read()
+            f.close()
+            return readme
+        except:
+            return "No README"
 
     @staticmethod
     def get_list():
