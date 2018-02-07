@@ -1,0 +1,14 @@
+<package>
+  <name>TestPackage</name>
+  <author>HatefulCarre1</author>
+  <type>plugins</type>
+  <version>V0.0.1-Beta</version>
+  <createtime>2017-1-1 00:00:00</createtime>
+  <application>Bukkit</application>
+  <application>pe</application>
+  <application>pe</application>
+  <license>VGVzdFBhY2thZ2U6SGF0ZWZ1bF9DYXJyZTE6QXpBT3dOeE5CdG11</license>
+  <md5>PwHLHfHuuFyTiiaOVpwYdtOzKabz</md5>
+  <tag>维护</tag>
+  <tag>哈哈</tag>
+</package>
